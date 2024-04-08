@@ -1,7 +1,6 @@
 import React from "react";
 import "./App.css";
 import { Link, Route, Routes, useNavigate } from "react-router-dom";
-// import Login from './pages/Login'
 import {
   BiHomeAlt,
   BiUser,
@@ -20,18 +19,26 @@ import AddProducts from "./pages/AddProducts";
 import Login from "./pages/Login";
 import EditProduct from "./pages/EditProduct";
 import Category from "./pages/Category";
-import { useDispatch } from "react-redux";
+import { useDispatch,useSelector } from "react-redux";
 import { adminLogout } from "./redux/user/userSlice";
 
 const App = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const isLoggedIn = useSelector((state) => state.user.isLoggedIn);
+  console.log('isLoggedIn',isLoggedIn) 
 
   const handleAdminLogout=()=>{
     dispatch(adminLogout());
     localStorage.removeItem("token");
     navigate("/login");
 
+  }
+
+
+   // Render login page if user is not logged in
+   if (!isLoggedIn) {
+    return <Login />;
   }
   return (
     <>

@@ -63,7 +63,7 @@ const Product = () => {
               <th>Image</th>
               <th>Title</th>
               <th>Price</th>
-              <th>Color</th>
+              <th>Colors</th>
               <th>Category</th>
               <th>Action</th>
             </tr>
@@ -73,18 +73,15 @@ const Product = () => {
               products.map((product) => (
                 <tr key={product._id}>
                   <td>
-                   
-                      <img
-                        key={product._id}
-                        src={product.image}
-                        alt=''
-                        style={{ width: "50px", marginRight: "5px" }}
-                      />
-                   
+                    <img
+                      src={product.image}
+                      alt="product "
+                      style={{ width: "50px" }}
+                    />
                   </td>
                   <td>{product.name}</td>
                   <td>Rs.{product.price}</td>
-                  <td>{product.color}</td>
+                  <td>{product.colors.join(', ')}</td>
                   <td>{product.category}</td>
                   <td>
                     <button

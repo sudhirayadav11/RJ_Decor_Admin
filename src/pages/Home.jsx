@@ -20,7 +20,7 @@ const Home = () => {
   }, []);
   return (
     <>
-     
+    
 
       {/* all products showing in home */}
       <h3 className="text-center  pt-4  fw-bolder pb-3">
@@ -32,7 +32,7 @@ const Home = () => {
           <thead>
             <tr>
               <th>Image</th>
-              <th>Title</th>
+              <th>Product Name</th>
               <th>Price</th>
               <th>Category</th>
               <th>Brand</th>
