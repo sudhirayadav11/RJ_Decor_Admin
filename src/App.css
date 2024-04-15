@@ -12,7 +12,7 @@ link {
 }
 
 .sidebar {
-    height: 100vh;
+    height: auto;
     background-color: rgb(104, 104, 141);
 }
 .nav {

@@ -9,7 +9,7 @@ import {
   BiLogOut,
   BiLogIn,
   BiFolder
-} from "react-icons/bi"; // Importing suitable icons
+} from "react-icons/bi"; 
 
 import Home from "./pages/Home";
 import Product from "./pages/Product";
