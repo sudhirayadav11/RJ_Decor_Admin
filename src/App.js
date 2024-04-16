@@ -7,7 +7,7 @@ import {
   BiPackage,
   BiShoppingBag,
   BiLogOut,
-  BiLogIn,
+  // BiLogIn,
   BiFolder
 } from "react-icons/bi"; 
 
@@ -43,10 +43,10 @@ const App = () => {
   return (
     <>
       {/* <Login/> */}
-      <div className="container-fluid">
+      <div className="container-fluid ">
         <div className="row">
           {/* side navigation */}
-          <div className="col-md-3  sidebar">
+          <div className="col-md-3  sidebar ">
             <div className="sidebar-sticky">
             <h3 className="text-light text-center border-bottom  py-3 fw-bolder">RJ-Decor</h3>
               <ul className="nav flex-column ">
@@ -75,11 +75,11 @@ const App = () => {
                     <BiShoppingBag className="me-2 fs-4"/> Orders
                   </Link>
                 </li>
-                <li className="nav-item">
+                {/* <li className="nav-item">
                   <Link to="/login" className="nav-link" activeClassName="active">
                     <BiLogIn className="me-2 fs-4"/> Login
                   </Link>
-                </li>
+                </li> */}
                 <li className="nav-item">
                   <button className="nav-link" onClick={handleAdminLogout}>
                     <BiLogOut className="me-2 fs-4"/> Logout

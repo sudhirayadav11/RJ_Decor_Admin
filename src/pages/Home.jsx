@@ -1,65 +1,104 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React , { useEffect ,useRef} from "react";
+import Chart from "chart.js/auto";  
 
 const Home = () => {
-  const [products, setProducts] = useState([]);
+  const chartRef = useRef(null);
 
   useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const response = await axios.get(
-          "http://localhost:5000/api/v1/products"
-        );
-        setProducts(response.data);
-      } catch (error) {
-        console.error("Error fetching products:", error);
+    const ctx = document.getElementById("myChart").getContext("2d");
+
+    // Check if a chart instance already exists
+    if (chartRef.current !== null) {
+      chartRef.current.destroy();
+    }
+
+    // Create a new chart instance
+    chartRef.current = new Chart(ctx, {
+      type: "bar",
+      data: {
+        labels: ["January", "February", "March", "April", "May", "June", "July"],
+        datasets: [{
+          label: "Revenue",
+          backgroundColor: "rgba(54, 162, 235, 0.5)",
+          borderColor: "rgba(54, 162, 235, 1)",
+          borderWidth: 1,
+          data: [65, 59, 80, 81, 56, 55, 40],
+        }],
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true,
+          },
+        },
+      },
+    });
+
+    // Cleanup function to destroy chart when component 
+    return () => {
+      if (chartRef.current !== null) {
+        chartRef.current.destroy();
       }
     };
-
-    fetchProducts();
   }, []);
   return (
     <>
-    
+      <div className="container mx-auto ">
+        <div className="row py-4">
+          <div className="col-md-4">
+            <div className="card shadow">
+              <div className="card-body p-4">
+                <h3 className="card-title text-center fw-semibold text-success">
+                  User
+                </h3>
+                <p className="card-text text-center"> Total user</p>
+                <h4 className="card-text text-center">10 +</h4>
+              </div>
+            </div>
+          </div>
 
-      {/* all products showing in home */}
-      <h3 className="text-center  pt-4  fw-bolder pb-3">
-        Total Available Products{" "}
-      </h3>
-      {/* total fetched products shows */}
-      <div className="table-responsive">
-        <table className="table table-striped table-hover table-bordered border-primary">
-          <thead>
-            <tr>
-              <th>Image</th>
-              <th>Product Name</th>
-              <th>Price</th>
-              <th>Category</th>
-              <th>Brand</th>
-            </tr>
-          </thead>
-          <tbody>
-            {products &&
-              products.map((product) => (
-                <tr key={product._id}>
-                  <td>
-                    <img
-                      src={product.image}
-                      alt={product.name}
-                      style={{ width: "50px" }}
-                    />
-                  </td>
-                  <td>{product.name}</td>
-                  <td>Rs.{product.price}</td>
-                  <td>{product.category}</td>
-                  <td>{product.brand}</td>
-                </tr>
-              ))}
-          </tbody>
-        </table>
+          <div className="col-md-4">
+            <div className="card shadow border ">
+              <div className="card-body p-4">
+                <h3 className="card-title text-center fw-semibold text-primary">
+                  Products
+                </h3>
+                <p className="card-text text-center"> Total products</p>
+                <h4 className="card-text text-center">16 +</h4>
+              </div>
+            </div>
+          </div>
+
+          <div className="col-md-4">
+            <div className="card shadow">
+              <div className="card-body p-4">
+                <h3 className="card-title text-center fw-semibold text-danger">
+                  Orders
+                </h3>
+                <p className="card-text text-center"> Total orders</p>
+                <h4 className="card-text text-center">4 +</h4>
+              </div>
+            </div>
+          </div>
+
+        
+
+           {/* Graph */}
+           <div className="col-md-12 mt-4">
+            <div className="card shadow">
+              <div className="card-body py-1">
+                <h3 className="card-title text-center fw-semibold">
+                  Graph
+                </h3>
+                <div className="text-center">
+                <canvas id="myChart" width="400" height="130"></canvas>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-
-      {/* products add button */}
     </>
   );
 };

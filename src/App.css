@@ -12,7 +12,7 @@ link {
 }
 
 .sidebar {
-    height: auto;
+    min-height: 100vh;
     background-color: rgb(104, 104, 141);
 }
 .nav {
@@ -30,4 +30,15 @@ link {
 }
 .nav-link.active {
     color: inherit;
+}
+
+
+.graph{
+    width: 100%;
+    height: 340px;
+}
+.graph img{
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
 }
