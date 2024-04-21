@@ -49,7 +49,7 @@ const Home = () => {
             <div className="card shadow">
               <div className="card-body p-4">
                 <h3 className="card-title text-center fw-semibold text-success">
-                  User
+                  Users
                 </h3>
                 <p className="card-text text-center"> Total user</p>
                 <h4 className="card-text text-center">10 +</h4>
@@ -99,7 +99,7 @@ const Home = () => {
             <div className="row">
               <div className="col-md-6">
                 <h3 className="capitalize fw-semibold text-primary py-4 border-bottom border-2 ">
-                  Welcome To Our RJ_DECOR
+                  Welcome To Our RJ Decor
                 </h3>
                 <div className="">
                 <div className="adminCard">
@@ -107,9 +107,9 @@ const Home = () => {
                   <br />
                   Sudhira Yadav
                   <br />
-                  9807347863
+                  9803437150
                   <br />
-                  Gothatar, Bhaktpur
+                  Gothatar, Kathmandu
                 </div>
                 </div>
                 
